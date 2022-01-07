@@ -11,7 +11,12 @@
          (lfe-mode . evil-cleverparens-mode)
          (dune-mode . evil-cleverparens-mode)
          (clojure-mode . evil-cleverparens-mode)
-         (fennel-mode . evil-cleverparens-mode)))
+         (fennel-mode . evil-cleverparens-mode))
+  :config
+  (after! cider
+    (when (featurep! :editor evil +everywhere)
+      (add-hook! cider-repl-mode-hook #'evil-cleverparens-mode)
+      (add-hook! cider-repl-history-mode #'evil-cleverparens-mode))))
 
 (use-package! paredit
   :unless (featurep! :editor lispy))
