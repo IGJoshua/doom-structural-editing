@@ -35,4 +35,21 @@
            (clojure-mode . paxedit-mode)
            (fennel-mode . paxedit-mode))
     :config
-    (add-hook! eval-expression-minibuffer-setup-hook #'paxedit-mode)))
+    (add-hook! eval-expression-minibuffer-setup-hook #'paxedit-mode)
+
+    (map! (:map paxedit-mode-map
+            :i "M-<right>" #'paxedit-transpose-forward
+            :i "M-<left>" #'paxedit-transpose-backward
+            :i "M-<up>" #'paxedit-backward-up
+            :i "M-<down>" #'paxedit-backward-end
+            :i "M-b" #'paxedit-previous-symbol
+            :i "M-f" #'paxedit-next-symbol
+            :i "C-%" #'paxedit-copy
+            :i "C-&" #'paxedit-kill
+            :i "C-*" #'paxedit-delete
+            :i "C-^" #'paxedit-sexp-raise
+            :i "C-w" #'paxedit-backward-kill
+            :i "M-w" #'paxedit-forward-kill
+            :i "M-u" #'paxedit-symbol-change-case
+            :i "C-@" #'paxedit-symbol-copy
+            :i "C-#" #'paxedit-symbol-kill))))
