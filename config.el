@@ -33,6 +33,7 @@
            (lfe-mode . paxedit-mode)
            (dune-mode . paxedit-mode)
            (clojure-mode . paxedit-mode)
+           (cider-repl-mode . paxedit-mode)
            (fennel-mode . paxedit-mode))
     :config
     (add-hook! eval-expression-minibuffer-setup-hook #'paxedit-mode)
